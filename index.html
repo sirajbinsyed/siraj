@@ -38,6 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700" rel="stylesheet">
 <!-- //onlinefonts -->
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"> 
 		<!-- header -->
@@ -350,7 +351,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">	
 				<h3 class="w3l-heading">contact</h3>
 				<div class="w3_agile-contact  jarallax text-center">
-					<form action="#" method="get">
+					<form id="submit-form" action="" >
 						<input type="text" placeholder="Name" name="name" class="name" required>
 						<input type="text" placeholder="Phone Number" name="phone" class="name" required>
 						<input type="email" placeholder="Email" name="email" class="email" required>
@@ -406,6 +407,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start-smoth-scrolling -->
 	<script type="text/javascript" src="js/easing.js"></script>
 <!-- //here ends scrolling icon -->
+ <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzYektKKcwYuG-7mNV8CD-Op3p3qCZOVDU1eDPffnkZ_1RRKjPNafF5uiiL032HmCy1AA/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 	
 
 </body>
